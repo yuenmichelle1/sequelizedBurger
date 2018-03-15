@@ -1,46 +1,55 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center" id="top-bar">
-			<img src="/assets/images/burger.png" alt="burger" />
-			<h1> Eat-Da-Burger! </h1>
-		</div>
-		<div class="col-xs-6 text-center" class="task">
-			<div class="row">
-			  {{#each Burger}}
-			  	{{#unless this.devoured}}
-				<div class="col-xs-9 text-center">
-					<pre>{{this.id}}. {{this.burger_name}}
-					</pre>
-				  		<!-- {{this.Date}} -->
-				</div>
-				<div class="col-xs-3 text-center">
-					<form class="devour-form" class="button-size">
-						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-						<button type="submit" class="btn btn-default" id="devour" data-id = "{{this.id}}" data-newdevoured= "{{devoured}}">Devour it!</button>
-					</form>
-				</div>
-				{{/unless}}
-			  {{/each}}
+<div class="container row">
+	<div class="col-md-12 text-center" id="top-bar">
+		<h1> Eat-Da-Burger! </h1>
+	</div>
+</div>
+<div class="container row">
+	<center>
+		<!-- Left side Not yet devoured -->
+		<div class="col-md-6">
+			<h4 class="red_font">Ready to eat!</h4>
+			<div id="ready_to_eat">
+				{{#each Burger}} {{#unless devoured}}
+				<form>
+					<div class="input-group">
+						<li class="form-control">{{burger_name}}</li>
+						<span class="input-group-btn">
+							<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
+						</span>
+					</div>
+				</form>
+				{{/unless}} {{/each}}
+
 			</div>
 		</div>
-		<div class="col-xs-6 text-center" class="task">
-			  {{#each Burger}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-				{{/if}}
-			  {{/each}}
-		</div>
-	</div>
-</div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center enter_section">
-			<form action="/burgers/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-			</form>
-			<p>Enter a burger you want to eat Click the "Submit" button.</p>
+		<!-- Right side (already eaten) -->
+		<div class="col-md-6">
+			<h4 class="red_font">Already eaten!</h4>
+			<div id="already_eaten">
+				{{#each Burger}} {{#if this.devoured}}
+				<div class="input-group">
+					<li class="form-control">{{this.burger_name}}</li>
+				</div>
+				{{/if}} {{/each}}
+
+			</div>
+		</div>
+	</center>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center enter_section">
+				<form class="create-form" action="/burgers/create" method="POST">
+					<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+					<label for="devoured">Devoured?</label>
+					<br>
+					<input type="radio" name="devoured" value="1" checked> Eaten?
+					<br>
+					<input type="radio" name="devoured" value="0"> Not Eaten
+					<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+				</form>
+				<p>Enter a burger you want to eat Click the "Submit" button.</p>
+			</div>
 		</div>
 	</div>
-</div>
