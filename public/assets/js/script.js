@@ -12,7 +12,7 @@ $(function() {
       type: "PUT",
       data: newdevouredState
     }).then(function() {
-      console.log("changed sleep to", newdevoured);
+      console.log("changed devoured to", newdevoured);
       // Reload the page to get the updated list
       location.reload();
     });
