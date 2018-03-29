@@ -3,44 +3,42 @@
 		<h1> Eat-Da-Burger! </h1>
 	</div>
 </div>
-<div class="container row">
+<div class="container">
 	<center>
-		<!-- Left side Not yet devoured -->
-		<div class="col-md-6">
-			<h4 class="red_font">Ready to eat!</h4>
-			<div id="ready_to_eat">
-				{{#each Burger}} {{#unless devoured}}
-				<form>
-					<div class="input-group">
-						<li class="form-control">{{burger_name}}</li>
-						{{!-- Customer Name --}}
-						<input type="text" class="customerName" placeholder="Customer Name">
-						<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
-					</div>
-				</form>
-
-				{{/unless}} {{/each}}
-
-			</div>
-		</div>
-
-		<!-- Right side (already eaten) -->
-		<div class="col-md-6">
-			<h4 class="red_font">Already eaten!</h4>
-			<div id="already_eaten">
-				{{#each Burger}} {{#if this.devoured}}
-				<div class="input-group">
-					<li class="form-control">{{this.burger_name}} Customer: {{this.Customer.dataValues.customer_name}}</li>
-				</div>
-				{{/if}} {{/each}}
-
-			</div>
-		</div>
-	</center>
-
-	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 text-center enter_section center-block">
+			<!-- Left side Not yet devoured -->
+			<div class="col-md-6 center-block">
+				<h4 class="red_font">Ready to eat!</h4>
+				<div id="ready_to_eat">
+					{{#each Burger}} {{#unless devoured}}
+					<form>
+						<div class="input-group">
+							<li class="form-control">{{burger_name}}</li>
+							{{!-- Customer Name --}}
+							<input type="text" class="customerName" placeholder="Customer Name">
+							<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
+						</div>
+					</form>
+					{{/unless}} {{/each}}
+				</div>
+			</div>
+			<!-- Right side (already eaten) -->
+			<div class="col-md-6 center-block">
+				<h4 class="red_font">Already eaten!</h4>
+				<div id="already_eaten">
+					{{#each Burger}} {{#if this.devoured}}
+					<div class="input-group">
+						<li class="form-control">{{this.burger_name}} Customer: {{this.Customer.dataValues.customer_name}}</li>
+					</div>
+					{{/if}} {{/each}}
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1> Add A New Burger</h1>
 				<form class="create-form center-block" action="/burgers/create" method="POST">
 					<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
 					<label for="devoured">Devoured?</label>
@@ -53,4 +51,5 @@
 				<p>Enter a burger you want to eat Click the "Submit" button.</p>
 			</div>
 		</div>
-	</div>
+	</center>
+</div>

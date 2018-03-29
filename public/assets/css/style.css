@@ -11,6 +11,11 @@ body {
   color: black;
 }
 
+.right {
+  float: right;
+  right: 25px;
+}
+
 #top-bar {
   margin-top: 28px;
   color: white;
@@ -42,21 +47,10 @@ body {
 }
 
 .enter_section {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
   height: 400px;
   width: 400px;
 }
 
-#enter_text {
-  width: 400px;
-  height: 80px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: auto;
-  font-size: 38px;
-}
 
 .task {
   border-color: black;
