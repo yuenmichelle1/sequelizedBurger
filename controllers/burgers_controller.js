@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
+var sequelize= require("sequelize");
 
 // get route -> index
 router.get("/", function(req, res) {
@@ -15,7 +16,8 @@ router.get("/burgers", function(req, res) {
   // express callback response by calling burger.selectAllBurger
   db.Burger.findAll({
     include: db.Customer, 
-    where: query
+    where: query, 
+    order: sequelize.col("burger_name")
   }).then(function(data) {
     // Wrapping the array of returned burgers in a object so it can be referenced inside our handlebars
     var burger_data = data.map(x => x.dataValues);
