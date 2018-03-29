@@ -7,9 +7,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.customerName {
+  color: black;
+}
 
 #top-bar {
   margin-top: 28px;
+  color: white;
 }
 
 .spacing-reset {
@@ -69,6 +73,4 @@ body {
   margin-bottom: 18px;
 }
 
-h1 {
-  color: #f30;
-}
+

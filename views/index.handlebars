@@ -13,11 +13,12 @@
 				<form>
 					<div class="input-group">
 						<li class="form-control">{{burger_name}}</li>
-						<span class="input-group-btn">
-							<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
-						</span>
+						{{!-- Customer Name --}}
+						<input type="text" class="customerName" placeholder="Customer Name">
+						<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
 					</div>
 				</form>
+
 				{{/unless}} {{/each}}
 
 			</div>
@@ -29,7 +30,7 @@
 			<div id="already_eaten">
 				{{#each Burger}} {{#if this.devoured}}
 				<div class="input-group">
-					<li class="form-control">{{this.burger_name}}</li>
+					<li class="form-control">{{this.burger_name}} Customer: {{this.Customer.dataValues.customer_name}}</li>
 				</div>
 				{{/if}} {{/each}}
 
@@ -39,8 +40,8 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 text-center enter_section">
-				<form class="create-form" action="/burgers/create" method="POST">
+			<div class="col-xs-12 text-center enter_section center-block">
+				<form class="create-form center-block" action="/burgers/create" method="POST">
 					<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
 					<label for="devoured">Devoured?</label>
 					<br>
