@@ -9,9 +9,9 @@ router.get("/", function(req, res) {
 });
 
 router.get("/burgers", function(req, res) {
-  var query;
-  if (req.CustomerId){
-    query = {Customer : req.CustomerId}
+  var query ={};
+  if (req.query.CustomerId){
+    query.Customer = req.query.CustomerId
   }
   // express callback response by calling burger.selectAllBurger
   db.Burger.findAll({

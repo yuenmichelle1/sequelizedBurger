@@ -15,7 +15,7 @@
 						<div class="input-group">
 							<li class="form-control">{{burger_name}}</li>
 							{{!-- Customer Name --}}
-							<input type="text" class="customerName" placeholder="Customer Name" value="">
+							<input type="text" class="customerName" placeholder="Customer Name">
 							<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
 						</div>
 					</form>
@@ -28,7 +28,7 @@
 				<div id="already_eaten">
 					{{#each Burger}} {{#if this.devoured}}
 					<div class="input-group">
-						<li class="form-control">{{this.burger_name}} Customer: {{this.customer_name}}</li>
+						<li class="form-control">{{this.burger_name}} Customer: {{this.Customer.customer_name}}</li>
 					</div>
 					{{/if}} {{/each}}
 
