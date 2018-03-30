@@ -1,13 +1,11 @@
 $(function() {
   $(".change-devoured").on("click", function(event) {
     var id = $(this).data("id");
-    var newdevoured = $(this).data("devoured");
     var customerName = $(".customerName").val();
 
     var newdevouredState = {
       devoured: 1
     };
-
     //Post a new customer then PUT onto burger
     $.ajax(`/burgers/customer`, {
       type: "POST",
@@ -24,7 +22,7 @@ $(function() {
         }
       }).then(function() {
         console.log("customer added to burger");
-        location.reload();
+        // location.reload();
       });
     });
   });
