@@ -8,15 +8,15 @@ $(function() {
       devoured: 1
     };
 
-    // Send the PUT request.
-    $.ajax(`/burgers/update/${id}`, {
-      type: "PUT",
-      data: newdevouredState
-    }).then(function() {
-      console.log("changed devoured to", newdevoured);
-      // Reload the page to get the updated list
-      location.reload();
-    });
+    // // Send the PUT request.
+    // $.ajax(`/burgers/update/${id}`, {
+    //   type: "PUT",
+    //   data: newdevouredState
+    // }).then(function() {
+    //   console.log("changed devoured to", newdevoured);
+    //   // Reload the page to get the updated list
+    //   location.reload();
+    // });
 //Post a new customer then PUT onto burger
     $.ajax(`/burgers/customer`, {
       type: "POST",
@@ -28,7 +28,8 @@ $(function() {
       $.ajax(`/burgers/update/${id}`, {
         type: "PUT",
         data: {
-          CustomerId: customerId
+          CustomerId: customerId, 
+          devoured: 1
         }
       }).then(function(){
         console.log("customer added to burger");
