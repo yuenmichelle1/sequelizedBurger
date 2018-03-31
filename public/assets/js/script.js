@@ -22,7 +22,7 @@ $(function() {
         }
       }).then(function() {
         console.log("customer added to burger");
-        // location.reload();
+        window.location.href="/burgers"
       });
     });
   });

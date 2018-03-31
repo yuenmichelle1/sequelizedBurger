@@ -9,14 +9,17 @@ router.get("/", function(req, res) {
 });
 
 router.get("/burgers", function(req, res) {
+  console.log("burgers fired");
   var query ={};
   if (req.query.CustomerId){
     query.Customer = req.query.CustomerId
   }
+  console.log(`Ello !! ${JSON.stringify(req.query)}`);
+  console.log(`WORLLLD ${JSON.stringify(req.body)}`);
   // express callback response by calling burger.selectAllBurger
   db.Burger.findAll({
     include: db.Customer, 
-    where: query, 
+    // where: {Customer.id :req.CustomerId}, 
     order: sequelize.col("burger_name")
   }).then(function(data) {
     // Wrapping the array of returned burgers in a object so it can be referenced inside our handlebars
@@ -41,11 +44,13 @@ router.post("/burgers/create", function(req, res) {
 router.post("/burgers/customer", function(req, res){
   db.Customer.create(req.body).then(function(result){
     res.json(result);
+    // res.redirect(`/burger/update/${result.id}`)
   })
 })
 
 // put route -> back to index
 router.put("/burgers/update/:id", function(req, res) {
+  console.log(req.body);
   db.Burger.update(
     req.body,
     {
