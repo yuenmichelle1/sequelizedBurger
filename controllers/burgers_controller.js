@@ -10,12 +10,12 @@ router.get("/", function(req, res) {
 
 router.get("/burgers", function(req, res) {
   console.log("burgers fired");
-  var query ={};
-  if (req.query.CustomerId){
-    query.Customer = req.query.CustomerId
-  }
-  console.log(`Ello !! ${JSON.stringify(req.query)}`);
-  console.log(`WORLLLD ${JSON.stringify(req.body)}`);
+  // var query ={};
+  // if (req.query.CustomerId){
+  //   query.Customer = req.query.CustomerId
+  // }
+  // console.log(`Ello !! ${JSON.stringify(req.query)}`);
+  // console.log(`WORLLLD ${JSON.stringify(req.body)}`);
   // express callback response by calling burger.selectAllBurger
   db.Burger.findAll({
     include: db.Customer, 
@@ -63,7 +63,7 @@ router.put("/burgers/update/:id", function(req, res) {
     // render back to index with handle
     console.log(result);
     // Send back response and let page reload from .done in Ajax
-    res.json("/");
+    res.redirect("/burgers");
   });
 });
 
