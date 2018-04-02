@@ -32,7 +32,7 @@ $(function() {
     event.preventDefault();
 
     var newburger = {
-      burger_name: $("#enter_text").val(),
+      burger_name: $("#enter_text").val().trim(),
       devoured: $("[name=devoured]:checked").val()
     };
 
