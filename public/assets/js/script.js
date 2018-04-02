@@ -2,7 +2,7 @@ $(function() {
   $(".change-devoured").on("submit", function(event) {
     event.preventDefault();
     var id = $(".btn-success").data("id");
-    var customerName = $(".customerName").val();
+    var customerName = $(".customerName").val().trim();
     console.log(customerName)
     //Post a new customer then PUT onto burger
     $.ajax(`/burgers/customer`, {
