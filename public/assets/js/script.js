@@ -22,7 +22,7 @@ $(function() {
         // console.log(`test ${result}`)
         console.log("customer added to burger");
         // location.reload();
-        alert("again");
+        // alert("again");
       });
     });
   });
