@@ -17,13 +17,11 @@ $(function() {
         data: {
           CustomerId: customerId,
           devoured: 1
-        }
-        
+        }   
       }).then(function() {
         // console.log(`test ${result}`)
         console.log("customer added to burger");
-        // location.reload();
-        alert('Burger added');
+        location.reload();
       });
     });
   });
