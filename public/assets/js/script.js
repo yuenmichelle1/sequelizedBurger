@@ -1,11 +1,9 @@
 $(function() {
-  $(".change-devoured").on("click", function(event) {
-    var id = $(this).data("id");
+  $(".change-devoured").on("submit", function(event) {
+    event.preventDefault();
+    var id = $(".btn-success").data("id");
     var customerName = $(".customerName").val();
-
-    var newdevouredState = {
-      devoured: 1
-    };
+    console.log(customerName)
     //Post a new customer then PUT onto burger
     $.ajax(`/burgers/customer`, {
       type: "POST",
@@ -20,9 +18,12 @@ $(function() {
           CustomerId: customerId,
           devoured: 1
         }
+        
       }).then(function() {
+        // console.log(`test ${result}`)
         console.log("customer added to burger");
-        window.location.href="/burgers"
+        // location.reload();
+        alert('Burger added');
       });
     });
   });
@@ -45,6 +46,6 @@ $(function() {
       // Reload the page to get the updated list
       location.reload();
     });
-    console.log(newburger);
+    // console.log(newburger);
   });
 });

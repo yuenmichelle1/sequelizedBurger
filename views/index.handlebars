@@ -11,12 +11,12 @@
 				<h4 class="red_font">Ready to eat!</h4>
 				<div id="ready_to_eat">
 					{{#each Burger}} {{#unless devoured}}
-					<form>
+					<form class="change-devoured">
 						<div class="input-group">
 							<li class="form-control">{{burger_name}}</li>
 							{{!-- Customer Name --}}
 							<input type="text" class="customerName" placeholder="Customer Name">
-							<button class="btn btn-success change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
+							<button class="btn btn-success" data-id="{{id}}" data-newdevoured="{{devoured}}" type="submit">Devour It!</button>
 						</div>
 					</form>
 					{{/unless}} {{/each}}
