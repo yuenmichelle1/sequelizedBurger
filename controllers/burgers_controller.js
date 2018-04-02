@@ -59,7 +59,7 @@ router.put("/burgers/update/:id", function(req, res) {
     // render back to index with handle
     console.log(`WORK WORK WORK  ${result}`);
     // Send back response and let page reload from .done in Ajax
-    res.redirect("/burgers");
+    res.redirect("/");
   });
 });
 
