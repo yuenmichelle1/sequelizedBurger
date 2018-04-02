@@ -21,7 +21,7 @@ $(function() {
       }).then(function() {
         // console.log(`test ${result}`)
         console.log("customer added to burger");
-        // location.reload();
+        location.reload();
         // alert("again");
       });
     });
